@@ -17,13 +17,13 @@ class register extends Database {
             $image = $_FILES['image']['name'];  
             $tmp_name = $_FILES['image']['tmp_name'];
             $phone = $_POST['phone'];
-            $designation = $_POST['designation'];
-            $gender = $_POST['gender'];    
+            $designation = isset($_POST['designation']);
+            $gender = isset($_POST['gender']);    
 
             // checking empty fields
             if (empty($username) || empty($email) || empty($password) || empty($image) || empty($phone) || empty($designation) || empty($gender)) {
                 echo "<script>alert('All fields are required!')</script>";    
-            }   else{  
+            }else{  
 
                 move_uploaded_file($tmp_name, "../images/$image");
 
